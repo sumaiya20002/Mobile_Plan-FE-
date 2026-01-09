@@ -1,0 +1,53 @@
+/* Full page background */
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+
+  /* Gradient overlay + background image */
+  background-image: 
+    linear-gradient(
+      135deg,
+      rgba(15, 32, 39, 0.85),
+      rgba(32, 58, 67, 0.85),
+      rgba(44, 83, 100, 0.85)
+    ),
+    url("image.png"); /* change path if needed */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login card (3D effect) */
+.login-card {
+  width: 380px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* Title spacing */
+.login-title {
+  font-weight: 600;
+}
+
+/* Error message spacing */
+.login-error {
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* Forgot password link */
+.login-link {
+  margin-top: 16px;
+  text-align: center;
+}

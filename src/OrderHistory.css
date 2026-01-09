@@ -1,0 +1,130 @@
+/* ===== PAGE ===== */
+.history-container {
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  min-height: 100vh;
+}
+
+/* ===== TITLE ===== */
+.history-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 40px;
+  color: #1e3c72;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  max-width: 720px;
+  margin: auto;
+}
+
+/* Vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #c7d2fe, #e0e7ff);
+  border-radius: 2px;
+}
+
+/* ===== ITEM ===== */
+.timeline-item {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* ===== DOT ===== */
+.timeline-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #c7d2fe;
+  margin-left: 10px;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.timeline-dot.success {
+  background: #22c55e;
+}
+
+.timeline-dot.failed {
+  background: #ef4444;
+}
+
+.timeline-dot.pending {
+  background: #facc15;
+}
+
+/* ===== CARD ===== */
+.timeline-card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  width: 100%;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== CARD HEADER ===== */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.amount {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1d4ed8;
+}
+
+/* ===== STATUS ===== */
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.status.success {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.status.failed {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+}
+
+.status.pending {
+  background: linear-gradient(135deg, #facc15, #eab308);
+  color: #1e293b;
+}
+
+/* ===== BODY ===== */
+.card-body p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #475569;
+}
+
+/* ===== CENTER TEXT ===== */
+.center-text {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #475569;
+}

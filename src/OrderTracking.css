@@ -1,0 +1,117 @@
+/* ===============================
+   PAGE BACKGROUND – CRYSTAL BLUE
+================================ */
+.track-bg {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: linear-gradient(
+      90deg,
+      #b7d8e6 0%,
+      #eaf4f8 35%,
+      #ffffff 55%,
+      #cfe8f2 75%,
+      #9ecbdc 100%
+    );
+  }
+  
+  /* ===============================
+     TRACK CARD – 3D CRYSTAL
+  ================================ */
+  .track-line-card {
+    width: 520px;
+  
+    background: linear-gradient(
+      135deg,
+      #e6f7fb,
+      #dbeafe,
+      #e0f2fe
+    );
+  
+    padding: 36px;
+    border-radius: 26px;
+    text-align: center;
+  
+    border: 1px solid rgba(56, 189, 248, 0.35);
+  
+    box-shadow:
+      0 22px 55px rgba(56, 189, 248, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  
+    animation: trackPop 0.6s ease;
+  }
+  
+  /* ===============================
+     PROGRESS BAR BACKGROUND
+  ================================ */
+  .line-bg {
+    height: 14px;
+    margin-top: 24px;
+  
+    background: linear-gradient(
+      135deg,
+      #e0f2fe,
+      #f0f9ff
+    );
+  
+    border-radius: 20px;
+    overflow: hidden;
+  
+    box-shadow:
+      inset 0 3px 8px rgba(0,0,0,0.15);
+  }
+  
+  /* ===============================
+     PROGRESS FILL – CRYSTAL BLUE
+  ================================ */
+  .line-fill {
+    height: 100%;
+  
+    background: linear-gradient(
+      90deg,
+      #3b82f6,
+      #2563eb
+    );
+  
+    box-shadow:
+      0 6px 18px rgba(37, 99, 235, 0.55);
+  
+    transition: width 0.35s ease;
+  }
+  
+  /* ===============================
+     STATUS TEXT
+  ================================ */
+  .status-text {
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e40af;
+  }
+  
+  /* ===============================
+     ANIMATION
+  ================================ */
+  @keyframes trackPop {
+    from {
+      opacity: 0;
+      transform: translateY(25px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* ===============================
+     MOBILE
+  ================================ */
+  @media (max-width: 600px) {
+    .track-line-card {
+      width: 90%;
+      padding: 28px;
+    }
+  }
+  

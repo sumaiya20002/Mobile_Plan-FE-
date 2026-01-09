@@ -1,0 +1,326 @@
+/* ===== ROOT ===== */
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background: #c043b8;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.dashboard.dark {
+  background: #020617;
+}
+
+/* ================== LEFT SIDEBAR CARD ================== */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #020617, #0f172a);
+  color: #e5e7eb;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.sidebar-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ================== MENU LIST ================== */
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ================== MENU CARD ITEM ================== */
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 18px;
+  border-radius: 14px;
+
+  text-decoration: none;
+  color: #cbd5f5;
+  font-size: 16px;
+  font-weight: 500;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.sidebar nav a:hover {
+  background: linear-gradient(
+    135deg,
+    #0f9b9b,
+    #2563eb,
+    #5b21b6
+  );
+  color: #ffffff;
+  transform: translateX(6px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5);
+}
+
+/* Active */
+.sidebar nav a.active {
+  background: linear-gradient(
+    135deg,
+    #22c55e,
+    #16a34a
+  );
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.45);
+}
+
+/* ================== LOGOUT CARD ================== */
+.logout-btn {
+  margin-top: auto;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.logout-btn:hover {
+  transform: translateX(6px);
+  box-shadow: 0 12px 30px rgba(239, 68, 68, 0.6);
+}
+
+/* NAV */
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  color: #cbd5f5;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar nav a.active {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+/* LOGOUT */
+.logout-btn {
+  margin-top: auto;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== MAIN ===== */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP HEADER */
+.top-header {
+  background: white;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard.dark .top-header {
+  background: #020617;
+  color: #e5e7eb;
+  border-bottom: 1px solid #1e293b;
+}
+
+/* CONTENT */
+.content {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* THEME BUTTON */
+.theme-btn {
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+/* ===== TOP HEADER – DARK CARD STYLE (NO CENTER CHANGE) ===== */
+/* ===== CRYSTAL BLUE CARD (REPLACE YOUR .card WITH THIS) ===== */
+.card {
+  position: relative;
+  padding: 28px;
+  border-radius: 26px;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+
+  /* CRYSTAL BLUE */
+  background: linear-gradient(
+    135deg,
+    #e6f7fb,
+    #dbeafe,
+    #e0f2fe
+  );
+
+  color: #0f172a;
+
+  border: 1px solid rgba(56, 189, 248, 0.35);
+
+  box-shadow:
+    0 18px 45px rgba(56, 189, 248, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+  transform-style: preserve-3d;
+  transition: all 0.35s ease;
+  animation: cardPop 0.6s ease forwards;
+}
+
+/* Soft crystal glow */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(125, 211, 252, 0.7),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* Text */
+.card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.card p {
+  font-size: 14px;
+  color: #1e40af;
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:
+    0 35px 80px rgba(56, 189, 248, 0.6);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+/* ===== CARD (SAME COLOR AS LOGIN IMAGE) ===== */
+.card {
+  position: relative;
+  padding: 28px;
+  border-radius: 26px;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+
+  /* LOGIN IMAGE GRADIENT */
+  background: linear-gradient(
+    135deg,
+    #0d9488,   /* teal */
+    #2563eb,   /* blue */
+    #5b21b6    /* purple */
+  );
+
+  color: #e5e7eb;
+
+  border: none;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35);
+
+  transform-style: preserve-3d;
+  transition: all 0.35s ease;
+  animation: cardPop 0.6s ease forwards;
+}
+
+/* Soft inner highlight like login card */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+  opacity: 1;
+}
+
+/* Text */
+.card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+  color: #f8fafc;
+}
+
+.card p {
+  font-size: 14px;
+  color: #e0e7ff;
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:
+    0 35px 80px rgba(37, 99, 235, 0.6);
+}
+/* ===== TOP HEADER SAME AS CARD COLOR ===== */
+.top-header {
+  background: linear-gradient(
+    135deg,
+    #d1f3f0,
+    #dbeafe,
+    #ede9fe
+  ) !important;
+
+  border-bottom: none !important;
+  color: #312e81;
+
+  box-shadow:
+    0 12px 35px rgba(59, 130, 246, 0.25);
+}
+
+/* Header text */
+.top-header h3 {
+  color: #312e81 !important;
+  font-weight: 600;
+}

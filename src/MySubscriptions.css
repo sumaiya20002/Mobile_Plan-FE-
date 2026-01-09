@@ -1,0 +1,72 @@
+.subs-container {
+    padding: 30px;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .tabs button {
+    padding: 10px 22px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    background: #e5e7eb;
+  }
+  
+  .tabs .active {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+  }
+  
+  .subs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
+  
+  .subs-card {
+    background: white;
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  .subs-card:hover {
+    transform: translateY(-10px) rotateX(6deg);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.25);
+  }
+  
+  .countdown {
+    margin-top: 10px;
+    color: #16a34a;
+    font-weight: bold;
+  }
+  
+  .cancel-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    cursor: pointer;
+
+  }
+
+  .reactivate-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg,#22c55e,#16a34a);
+    color: white;
+    cursor: pointer;
+  }
+  
+  
