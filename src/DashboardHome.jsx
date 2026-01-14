@@ -37,6 +37,12 @@ function DashboardHome() {
           <p>Review selected plans and complete payment</p>
         </div>
 
+        <div className="card" onClick={() => navigate("/support")}>
+  <h3>🎫 Support Tickets</h3>
+  <p>Raise and track your support requests</p>
+</div>
+
+
         {/* 🤖 AI CHAT */}
         <div className="card" onClick={() => navigate("/ai-chat")}>
           <h3>🤖 AI Assistant</h3>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./DashboardLayout.css";
 import NotificationBell from "./NotificationBell";
 
+
 function DashboardLayout() {
   const [collapsed, setCollapsed] = useState(false);
   const [dark, setDark] = useState(false);
@@ -30,6 +31,7 @@ function DashboardLayout() {
           <NavLink to="/subscription">📄 Subscriptions</NavLink>
           <NavLink to="/cart">🛒 Cart</NavLink>
           <NavLink to="/history">🧾 History</NavLink>
+          <NavLink to="/support">🎫 Support</NavLink>
         </nav>
 
         <button className="logout-btn" onClick={logout}>
@@ -41,10 +43,26 @@ function DashboardLayout() {
         <header className="top-header">
           <h3>Mobile Plan Change & Fulfillment</h3>
 
-          <div style={{ display: "flex", gap: "16px" }}>
+          {/* RIGHT SIDE ICONS */}
+          <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
             <NotificationBell />
-            <button className="theme-btn" onClick={() => setDark(!dark)}>
+
+            {/* DARK MODE */}
+            <button
+              className="theme-btn"
+              onClick={() => setDark(!dark)}
+              title="Toggle Theme"
+            >
               {dark ? "🌞" : "🌙"}
+            </button>
+
+            {/* MY PROFILE (LAST) */}
+            <button
+              className="theme-btn"
+              onClick={() => navigate("/profile")}
+              title="My Profile"
+            >
+              👤
             </button>
           </div>
         </header>

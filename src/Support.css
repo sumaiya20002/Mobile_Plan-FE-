@@ -1,0 +1,135 @@
+/* ===== SUPPORT PAGE ===== */
+.support-container {
+    padding: 30px;
+    min-height: 100vh;
+    background: linear-gradient(
+      90deg,
+      #b7d8e6 0%,
+      #eaf4f8 35%,
+      #ffffff 55%,
+      #cfe8f2 75%,
+      #9ecbdc 100%
+    );
+  }
+  
+  /* ===== FORM CARD ===== */
+  .support-card {
+    max-width: 520px;
+    margin: auto;
+    padding: 28px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, #e6f7fb, #dbeafe, #e0f2fe);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    box-shadow: 0 18px 45px rgba(56, 189, 248, 0.35);
+  }
+  
+  .support-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .support-btn {
+    margin-top: 16px;
+    height: 46px;
+    font-weight: 600;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #cbd7e9, #cbd7e9);
+    color: white;
+  }
+  
+  /* ===== TABLE WRAPPER ===== */
+  .support-table-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #e6f7fb, #dbeafe);
+    box-shadow: 0 18px 45px rgba(56, 189, 248, 0.35);
+  }
+  
+  /* ===== TABLE ===== */
+  .support-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  
+  .support-table thead {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+  }
+  
+  .support-table th {
+    padding: 14px;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+  }
+  
+  .support-table td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .support-table tbody tr:hover {
+    background: #f0f9ff;
+  }
+  
+  /* ===== STATUS BADGES ===== */
+  .ticket-status-badge {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .ticket-open {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .ticket-progress {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  
+  .ticket-closed {
+    background: #dcfce7;
+    color: #166534;
+  }
+  
+  .no-ticket {
+    text-align: center;
+    padding: 20px;
+    color: #475569;
+  }
+  
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    .support-table thead {
+      display: none;
+    }
+  
+    .support-table,
+    .support-table tbody,
+    .support-table tr,
+    .support-table td {
+      display: block;
+      width: 100%;
+    }
+  
+    .support-table tr {
+      margin-bottom: 16px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+  
+    .support-table td {
+      border: none;
+      padding: 10px;
+    }
+  }
+  

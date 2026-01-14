@@ -2,9 +2,17 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import MyProfile from "./MyProfile";
+import Support from "./Support";
+
+
+
 
 /* ===== AUTH ===== */
 import Login from "./Login";
+import Signup from "./SignUp";
+
+
 import ForgotPassword from "./ForgotPassword";
 import OtpVerify from "./OtpVerify";
 import ResetPassword from "./ResetPassword";
@@ -43,8 +51,15 @@ function App() {
     <BrowserRouter>
       <Routes>
 
+
+       <Route path="/support" element={<Support />} />
+
+
         {/* ===== PUBLIC ===== */}
         <Route path="/" element={<Login />} />
+      
+         <Route path="/signup" element={<Signup />} />
+
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/verify-otp" element={<OtpVerify />} />
         <Route path="/reset-password" element={<ResetPassword />} />
@@ -55,6 +70,8 @@ function App() {
 
             {/* DASHBOARD */}
             <Route path="/dashboard" element={<DashboardHome />} />
+
+            <Route path="/profile" element={<MyProfile />} />
 
             {/* PLANS */}
             <Route path="/plan" element={<Plan />} />

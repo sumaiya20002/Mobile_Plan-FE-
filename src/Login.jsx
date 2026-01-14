@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-import "./ForgotPassword.css";
+
 
 import {
   Box,
@@ -147,9 +147,12 @@ function Login() {
               </Typography>
             )}
 
-            <div className="login-link">
-              <Link to="/forgot-password">Forgot Password?</Link>
-            </div>
+<div className="login-link">
+  <Link to="/forgot-password">Forgot Password?</Link>
+  <br />
+  <Link to="/signUp">New user? Sign Up</Link>
+</div>
+
           </form>
         </CardContent>
       </Card>
