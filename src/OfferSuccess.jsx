@@ -26,9 +26,8 @@ function OfferSuccess() {
           <p>Valid till: {state.endDate}</p>
         </div>
 
-        {/* ONLY UI – NO BACKEND NOW */}
-        <button onClick={() => navigate("/plan")}>
-          Back to Plans
+        <button onClick={() => navigate("/cart")}>
+          Go to Cart
         </button>
       </div>
     </div>

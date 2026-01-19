@@ -50,6 +50,7 @@ function Login() {
       //   : sessionStorage.setItem("token", res.data.token);
 
       localStorage.setItem("token",res.data.token);
+      localStorage.setItem("userId",res.data.userId);
 
         console.log(email+" "+password+" try 3"+res.data.token);
 

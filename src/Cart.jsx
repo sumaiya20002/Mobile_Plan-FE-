@@ -1,60 +1,134 @@
 import { useEffect, useState } from "react";
-import { getCart, addToCart } from "./cartApi";
+import { getCart } from "./cartApi";
 import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
 function Cart() {
-  const userId = 2;
-  const [cart, setCart] = useState([]);
+  const userId = Number(localStorage.getItem("userId"));
+  const [cartItem, setCartItem] = useState(null);
+
+  // customization (frontend only for now)
+  const [extraData, setExtraData] = useState(0);
+  const [extraSms, setExtraSms] = useState(0);
+  const [roaming, setRoaming] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    loadCart();
-  }, []);
+    if (!userId) return;
 
-  const loadCart = () => {
-    getCart(userId).then(res => setCart(res.data));
-  };
+    getCart(userId).then(res => {
+      if (res.data && res.data.length > 0) {
+        const latest = [...res.data].sort(
+          (a, b) => b.cartItemId - a.cartItemId
+        )[0];
+        setCartItem(latest);
+      }
+    });
+  }, [userId]);
 
-  const handleAdd = () => {
-    addToCart({
-      userId: 2,
-      productId: 1,
-      productName: "Unlimited Plus",
-      price: 349,
-      quantity: 1
-    }).then(() => loadCart());
-  };
+  if (!userId) {
+    return <p style={{ textAlign: "center" }}>User not logged in</p>;
+  }
+
+  if (!cartItem) {
+    return <p style={{ textAlign: "center" }}>Loading cart...</p>;
+  }
+
+  // price calculation
+  const basePrice = cartItem.price;
+  const dataCost = extraData * 10;
+  const smsCost = (extraSms / 10) * 1;
+  const roamingCost = roaming ? 99 : 0;
+
+  const totalPrice = basePrice + dataCost + smsCost + roamingCost;
+  const discountAmount = totalPrice * 0.1;
+  const totalPayable = totalPrice - discountAmount;
 
   return (
     <div className="cart-container">
       <div className="cart-card">
-        <h2 className="cart-title">Your Cart</h2>
+        <h2 className="cart-title">Review Your Order</h2>
 
-        <button className="add-plan-btn" onClick={handleAdd}>
-          + Add Plan
-        </button>
+        <div className="cart-item single">
+          <div>
+            <strong>{cartItem.productName}</strong>
+            <div className="item-price">₹{basePrice}</div>
 
-        {cart.map(item => (
-          <div className="cart-item" key={item.cartItemId}>
-            <div>
-              <strong>{item.productName}</strong>
-              <div>₹{item.price}</div>
-            </div>
-
-            <div className="qty-control">
-              <button className="qty-btn">−</button>
-              <span className="qty-value">{item.quantity}</span>
-              <button className="qty-btn">+</button>
+            <div className="plan-details">
+              <p>📶 Data: {cartItem.dataLimit}</p>
+              <p>📞 Voice: {cartItem.voiceMinutes} mins</p>
+              <p>✉️ SMS: {cartItem.smsLimit}</p>
+              <p>📅 Validity: {cartItem.validityDays} days</p>
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* CUSTOMIZATION (Jio-style UI) */}
+        <div className="bill-box">
+          <h3>Customize Your Plan</h3>
+
+          <label>Extra Data (GB): {extraData}</label>
+          <input
+            type="range"
+            min="0"
+            max="10"
+            value={extraData}
+            onChange={e => setExtraData(Number(e.target.value))}
+          />
+
+          <label>Extra SMS: {extraSms}</label>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            step="10"
+            value={extraSms}
+            onChange={e => setExtraSms(Number(e.target.value))}
+          />
+
+          <label>
+            <input
+              type="checkbox"
+              checked={roaming}
+              onChange={e => setRoaming(e.target.checked)}
+            />
+            International Roaming (+₹99)
+          </label>
+        </div>
+
+        {/* PRICE DETAILS */}
+        <div className="bill-box">
+          <h3>Price Details</h3>
+
+          <div className="bill-row">
+            <span>Base Price</span>
+            <span>₹{basePrice}</span>
+          </div>
+
+          <div className="bill-row">
+            <span>Add-ons</span>
+            <span>₹{dataCost + smsCost + roamingCost}</span>
+          </div>
+
+          <div className="bill-row discount">
+            <span>Offer Discount</span>
+            <span>-₹{discountAmount}</span>
+          </div>
+
+          <hr />
+
+          <div className="bill-row total">
+            <span>Amount Payable</span>
+            <span>₹{totalPayable}</span>
+          </div>
+        </div>
 
         <button
           className="checkout-btn"
           onClick={() => navigate("/checkout")}
         >
-          Proceed to Checkout
+          Proceed to Pay ₹{totalPayable}
         </button>
       </div>
     </div>
@@ -62,3 +136,4 @@ function Cart() {
 }
 
 export default Cart;
+ 

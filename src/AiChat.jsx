@@ -1,51 +1,66 @@
 import { useState } from "react";
 import { sendAiMessage } from "../src/Services/aiChatApi";
+import "./AiChat.css";
 
 function AiChat() {
   const [message, setMessage] = useState("");
-  const [reply, setReply] = useState("");
+  const [chat, setChat] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handleSend = async () => {
-    if (message.trim() === "") return;
+    if (!message.trim()) return;
 
+    const userMsg = { role: "user", text: message };
+    setChat(prev => [...prev, userMsg]);
+    setMessage("");
     setLoading(true);
+
     try {
-      const res = await sendAiMessage(message);
-      setReply(res.data.reply);
-      console.log(res.data.reply);
-      
-    } catch (error) {
-      setReply("AI service not available");
+      const res = await sendAiMessage(userMsg.text);
+      const aiMsg = { role: "ai", text: res.data.reply };
+      setChat(prev => [...prev, aiMsg]);
+    } catch {
+      setChat(prev => [
+        ...prev,
+        { role: "ai", text: "⚠️ AI service not available right now." }
+      ]);
     }
+
     setLoading(false);
   };
 
   return (
-    <div style={{ width: "400px", margin: "50px auto" }}>
-      <h3>AI Recharge Assistant</h3>
+    <div className="ai-chat-container">
+      {/* HEADER */}
+      <div className="ai-chat-header">
+        🤖 AI Recharge Assistant
+      </div>
 
-      <textarea
-        rows="4"
-        placeholder="Ask about recharge plans..."
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        style={{ width: "100%", padding: "10px" }}
-      />
+      {/* CHAT BODY */}
+      <div className="ai-chat-body">
+        {chat.map((msg, i) => (
+          <div key={i} className={`chat-bubble ${msg.role}`}>
+            {msg.text}
+          </div>
+        ))}
 
-      <button
-        onClick={handleSend}
-        style={{ width: "100%", marginTop: "10px" }}
-      >
-        {loading ? "Thinking..." : "Send"}
-      </button>
+        {loading && (
+          <div className="chat-bubble ai typing">
+            AI is typing<span>.</span><span>.</span><span>.</span>
+          </div>
+        )}
+      </div>
 
-      {reply && (
-        <div style={{ marginTop: "15px", background: "#f2f2f2", padding: "10px" }}>
-          <b>AI:</b>
-          <p>{reply}</p>
-        </div>
-      )}
+      {/* INPUT */}
+      <div className="ai-chat-input">
+        <textarea
+          rows="2"
+          placeholder="Ask about recharge plans, offers, validity..."
+          value={message}
+          onChange={e => setMessage(e.target.value)}
+        />
+        <button onClick={handleSend}>Send</button>
+      </div>
     </div>
   );
 }

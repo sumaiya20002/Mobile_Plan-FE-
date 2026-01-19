@@ -160,3 +160,76 @@
     transform: translateY(-6px) scale(1.03);
   }
 }
+
+
+/* ===== COMPARE CHECKBOX (SUBTLE & CLEAN) ===== */
+.plan-card input[type="checkbox"] {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* ===== SELECTED PLAN HIGHLIGHT (COMPARE MODE) ===== */
+.plan-card:has(input[type="checkbox"]:checked) {
+  border: 2px solid #2563eb;
+  box-shadow:
+    0 22px 55px rgba(37, 99, 235, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+/* ===== COMPARE BUTTON (SMALL, ATTRACTIVE, JIO-LIKE) ===== */
+.compare-btn {
+  display: inline-block;
+  margin: 0 auto 24px auto;
+  padding: 8px 22px;
+
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #ffffff;
+
+  border: none;
+  border-radius: 22px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.45);
+
+  transition: all 0.3s ease;
+}
+
+/* hover */
+.compare-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 32px rgba(37, 99, 235, 0.6);
+}
+
+/* active */
+.compare-btn:active {
+  transform: scale(0.96);
+}
+
+/* ===== CENTER COMPARE BUTTON ===== */
+.plan-container > .compare-btn {
+  display: block;
+  text-align: center;
+}
+
+/* ===== ADD TO CART (SAME COLOR AS VIEW OFFERS) ===== */
+.add-cart {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+.add-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+}

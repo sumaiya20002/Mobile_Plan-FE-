@@ -43,7 +43,7 @@ function Support() {
         message
       });
 
-      // ✅ SUCCESS ALERT
+      //  SUCCESS ALERT
       alert("✅ Your ticket has been raised successfully");
 
       setSubject("");

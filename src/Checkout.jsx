@@ -3,7 +3,7 @@ import { checkout, getCart } from "./cartApi";
 import "./Checkout.css";
 
 function Checkout() {
-  const userId = 2;
+  const userId = 1;
   const [paymentMode, setPaymentMode] = useState("UPI");
   const [total, setTotal] = useState(0);
 
@@ -40,7 +40,7 @@ function Checkout() {
             >
               {mode}
             </div>
-          ))}
+          ))}       
         </div>
 
         <button className="pay-btn" onClick={payNow}>

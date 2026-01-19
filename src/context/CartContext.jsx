@@ -10,11 +10,18 @@ export function CartProvider({ children }) {
     await axios.post(
       "http://localhost:8088/cart/add",
       {
-        userId: 2,                     // ✅ REQUIRED
-        productId: plan.planId,        // ✅ MUST match backend column
+        userId: localStorage.getItem("userId"),
+        productId: plan.planId,
         productName: plan.planName,
         price: plan.price,
-        quantity: 1
+        quantity: 1,
+  
+        // ✅ MATCH CartItem entity
+        dataLimit: plan.dataLimit,
+        validityDays: plan.validityDays,
+        voiceMinutes: plan.voiceMinutes,
+        smsLimit: plan.smsLimit,
+        planType: plan.planType
       },
       {
         headers: {
@@ -22,9 +29,8 @@ export function CartProvider({ children }) {
         }
       }
     );
-
-    setCartItem(plan);
   };
+  
 
   const clearCart = () => setCartItem(null);
 

@@ -12,7 +12,7 @@ function ResetPassword() {
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  const identifier = state?.identifier; // ✅ email OR phone
+  const identifier = state?.identifier; // email OR phone
 
   const resetPassword = async () => {
     if (password !== confirm) {

@@ -1,4 +1,8 @@
 /* ===== ROOT ===== */
+.main {
+  width: calc(100vw - 260px);
+}
+
 .dashboard {
   display: flex;
   height: 100vh;
@@ -139,6 +143,8 @@
   color: white;
   cursor: pointer;
 }
+
+
 
 /* ===== MAIN ===== */
 .main {

@@ -1,0 +1,107 @@
+/* ===== PAGE CENTER ===== */
+.change-plan-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background: linear-gradient(
+      90deg,
+      #b7d8e6 0%,
+      #eaf4f8 35%,
+      #ffffff 55%,
+      #cfe8f2 75%,
+      #9ecbdc 100%
+    );
+  }
+  
+  /* ===== 3D CARD ===== */
+  .change-plan-card {
+    width: 360px;
+    padding: 28px;
+    border-radius: 26px;
+  
+    background: linear-gradient(
+      135deg,
+      #e6f7fb,
+      #dbeafe,
+      #e0f2fe
+    );
+  
+    border: 1px solid rgba(56, 189, 248, 0.35);
+  
+    box-shadow:
+      0 20px 55px rgba(56, 189, 248, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  
+    animation: popCard 0.6s ease;
+  }
+  
+  /* ===== TITLE ===== */
+  .change-plan-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  
+  /* ===== INPUTS ===== */
+  .change-plan-card input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  
+    border-radius: 14px;
+    border: 1px solid #cbd5f5;
+    font-size: 14px;
+  
+    outline: none;
+    transition: all 0.25s ease;
+  }
+  
+  .change-plan-card input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+  }
+  
+  /* ===== BUTTON ===== */
+  .change-plan-card button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+  
+    border: none;
+    border-radius: 16px;
+  
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+  
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  
+    box-shadow:
+      0 10px 25px rgba(59, 130, 246, 0.45);
+  
+    transition: all 0.3s ease;
+  }
+  
+  .change-plan-card button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 18px 40px rgba(59, 130, 246, 0.6);
+  }
+  
+  /* ===== ANIMATION ===== */
+  @keyframes popCard {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  

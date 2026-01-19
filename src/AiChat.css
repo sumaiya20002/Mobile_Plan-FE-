@@ -1,0 +1,204 @@
+/* ======================================================
+   GLOBAL PAGE BACKGROUND (CRYSTAL BLUE 3D)
+====================================================== */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.45), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(37,99,235,0.35), transparent 45%),
+    linear-gradient(
+      135deg,
+      #b7d8e6 0%,
+      #eaf4f8 35%,
+      #ffffff 55%,
+      #cfe8f2 75%,
+      #9ecbdc 100%
+    );
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ======================================================
+   AI CHAT CONTAINER (FLOATING 3D CARD)
+====================================================== */
+.ai-chat-container {
+  width: 420px;              /* ⬅ bigger */
+  height: 620px;             /* ⬅ taller */
+  display: flex;
+  flex-direction: column;
+  border-radius: 26px;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    #e6f7fb,
+    #dbeafe,
+    #e0f2fe
+  );
+
+  box-shadow:
+    0 30px 80px rgba(56,189,248,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.95);
+
+  backdrop-filter: blur(14px);
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+.ai-chat-header {
+  padding: 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  box-shadow:
+    inset 0 -1px 0 rgba(255,255,255,0.35),
+    0 6px 20px rgba(37,99,235,0.45);
+}
+
+/* ======================================================
+   CHAT BODY
+====================================================== */
+.ai-chat-body {
+  flex: 1;
+  padding: 16px;
+  background: linear-gradient(180deg, #f0f9ff, #ffffff);
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ======================================================
+   CHAT BUBBLES
+====================================================== */
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  animation: popIn 0.25s ease;
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0 10px 25px rgba(59,130,246,0.45);
+}
+
+.chat-bubble.ai {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+  color: #0f172a;
+  border-bottom-left-radius: 6px;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.18);
+}
+
+/* ======================================================
+   TYPING INDICATOR
+====================================================== */
+.chat-bubble.typing {
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.chat-bubble.typing span {
+  animation: blink 1.4s infinite both;
+}
+
+.chat-bubble.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.chat-bubble.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ======================================================
+   INPUT AREA
+====================================================== */
+.ai-chat-input {
+  display: flex;
+  gap: 10px;
+  padding: 14px;
+  background: rgba(255,255,255,0.9);
+  border-top: 1px solid rgba(203,213,245,0.8);
+}
+
+.ai-chat-input textarea {
+  flex: 1;
+  resize: none;
+  border-radius: 16px;
+  border: 1px solid #cbd5f5;
+  padding: 10px 12px;
+  outline: none;
+  font-size: 14px;
+}
+
+.ai-chat-input textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+
+.ai-chat-input button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  transition: all 0.25s ease;
+}
+
+.ai-chat-input button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37,99,235,0.55);
+}
+
+/* ======================================================
+   ANIMATIONS
+====================================================== */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  20% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes floatCard {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===== CHAT BOX SIZE (PROJECT ONLY) ===== */
+.ai-chat-container {
+  width: 380px;
+  height: 440px;
+}

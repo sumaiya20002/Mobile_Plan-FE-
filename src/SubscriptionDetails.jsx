@@ -31,7 +31,10 @@ function SubscriptionDetails() {
         </p>
       </div>
     </div>
+    
   );
+ 
 }
+
 
 export default SubscriptionDetails;

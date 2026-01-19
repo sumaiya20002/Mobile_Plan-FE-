@@ -4,7 +4,7 @@ import NotificationPanel from "./NotificationPanel";
 import "./Notification.css";
 
 function NotificationBell() {
-  const userId = 7; // 🔥 MUST match backend
+  const userId = 7; //  MUST match backend
   const [open, setOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
 
